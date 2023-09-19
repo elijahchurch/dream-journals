@@ -1,14 +1,18 @@
 import React, { useState} from "react";
 import JournalList from "./JournalList";
 import UserForm from "./UserForm";
+import {Link} from "react-router-dom";
 
 function Home(){
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
 
     if(loggedIn) {
         return (
             <div className="Content">
                 <JournalList/>
+                <button> 
+                    <Link className="EnterDream" to="/enterDream">Log Dream Entry</Link>
+                </button>
             </div>
         )
     }

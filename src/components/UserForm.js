@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function UserForm(props){
     return(
-        <div className="userForm">
+        <div className="formTemplate">
             <h2>{props.message}</h2>
             <form>
                 <input 
