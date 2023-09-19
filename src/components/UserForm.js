@@ -6,14 +6,22 @@ function UserForm(props){
         <div className="formTemplate">
             <h2>{props.message}</h2>
             <form>
+                <label htmlFor="email">Email:</label>
                 <input 
+                    className="formInput"
+                    id="email"
                     type="text"
                     name="email"
                     placeholder="email" />
+                <br/>
+                <label htmlFor="password">Password:</label>
                 <input
+                    className="formInput"
+                    id="password"
                     type="password"
                     name="password"
                     placeholder="password"/>
+                <br/>
                 <button type="submit">{props.buttonText}</button>
             </form>
         </div>
