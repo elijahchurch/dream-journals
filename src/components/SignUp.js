@@ -1,7 +1,11 @@
+import UserForm from "./UserForm";
+
 function SignUp(){
     return(
         <div className="Content">
-            <h3>SignUp form</h3>
+            <UserForm
+                message="Register an Account"
+                buttonText="Sign Up"/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import JournalList from "./JournalList";
-import SignIn from "./SignIn";
+import UserForm from "./UserForm";
 
 function Home(){
     const [loggedIn, setLoggedIn] = useState(false)
@@ -15,7 +15,9 @@ function Home(){
     else{
         return (
             <div className="Content">
-                <SignIn/>
+                <UserForm 
+                    message="Sign In to Your Account"
+                    buttonText="Sign In"/>
             </div>
         )
     }
