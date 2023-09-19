@@ -7,12 +7,16 @@ function Home(){
 
     if(loggedIn) {
         return (
-            <JournalList/>
+            <div className="Content">
+                <JournalList/>
+            </div>
         )
     }
     else{
         return (
-            <SignIn/>
+            <div className="Content">
+                <SignIn/>
+            </div>
         )
     }
 }
