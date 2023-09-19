@@ -2,17 +2,16 @@ import React, { useState} from "react";
 import JournalList from "./JournalList";
 import UserForm from "./UserForm";
 import {Link} from "react-router-dom";
+import { db, auth } from "./../firebase"
 
 function Home(){
-    const [loggedIn, setLoggedIn] = useState(true)
+    const [loggedIn, setLoggedIn] = useState(false)
 
-    if(loggedIn) {
+    if(auth.currentUser !== null) {
         return (
             <div className="Content">
                 <JournalList/>
-                <button> 
-                    <Link className="EnterDream" to="/enterDream">Log Dream Entry</Link>
-                </button>
+                
             </div>
         )
     }
