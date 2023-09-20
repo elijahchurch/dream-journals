@@ -84,3 +84,20 @@ textarea {
 #welcome {
   font-size: 15px;
 }
+
+#mainList{
+  background-color: rgb(43, 160, 84);
+}
+
+.dreamTemplate {
+  background-color: bisque;
+  width: 90%;
+  border-style: solid;
+  border-radius: 5px;
+  text-align: left;
+  padding: 8px;
+  padding-bottom: 15px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}

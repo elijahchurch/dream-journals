@@ -3,7 +3,7 @@ import Dream from "./Dream";
 
 function JournaList(props){
     return (
-        <div className="Content formTemplate">
+        <div className="Content formTemplate" id="mainList">
             {props.list.map((entry) => 
             <Dream
                 name ={entry.name}
