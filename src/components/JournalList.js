@@ -10,13 +10,15 @@ function JournaList(props){
                 date = {entry.date}
                 description = {entry.description}
                 id={entry.id}
+                deleteFunction={props.deleteFunction}
                 key={entry.id}/>)}
         </div>
     )
 }
 
 JournaList.propTypes = {
-    list: Proptypes.array
+    list: Proptypes.array,
+    deleteFunction: Proptypes.func
 }
 
 export default JournaList;

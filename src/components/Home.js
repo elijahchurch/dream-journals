@@ -3,7 +3,7 @@ import JournalList from "./JournalList";
 import UserForm from "./UserForm";
 import useUser from "../hooks/useUser";
 import DreamForm from "./DreamForm";
-import { collection, addDoc, onSnapshot, where, query} from "firebase/firestore";
+import { collection, doc, addDoc, onSnapshot, where, query, deleteDoc} from "firebase/firestore";
 import { db} from "./../firebase";
 
 function Home(){
@@ -42,12 +42,16 @@ function Home(){
         setDreamForm(false);
     }
 
+    const deleteDreamEntry = async (id) => {
+        await deleteDoc(doc(db, "dreams", id));
+    }
+
     let displayedContent = null;
     if(dreamForm) {
         displayedContent = <DreamForm uid={currentUser.uid} handleFunction={handleAddingNewDream}/>
     }
     else {
-        displayedContent = <JournalList list={dreamList}/>
+        displayedContent = <JournalList list={dreamList} deleteFuction={deleteDreamEntry}/>
     }
 
     if(isLoggedIn) {
