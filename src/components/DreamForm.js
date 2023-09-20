@@ -1,11 +1,22 @@
 import PropTypes from "prop-types"
 
-function DreamForm(){
+function DreamForm(props){
+
+    const handleDreamForm = (event) => {
+        event.preventDefault();
+        props.handleFunction({
+            name: event.target.Name.value,
+            date: event.target.Date.value,
+            description: event.target.Description.value,
+            uid: props.uid
+        })
+    }
+
     return (
         <div className="Content">
             <div className="formTemplate">
                 <h2>Create Dream Entry</h2>
-                <form>
+                <form onSubmit={handleDreamForm}>
                     <label htmlFor="Name">Entry Name:</label>
                     <input 
                         className="formInput"
@@ -33,7 +44,8 @@ function DreamForm(){
 }
 
 DreamForm.propTypes = {
-    uid: PropTypes.string
+    uid: PropTypes.string, 
+    handleFunction: PropTypes.func
 }
 
 export default DreamForm;

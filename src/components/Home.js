@@ -3,19 +3,22 @@ import JournalList from "./JournalList";
 import UserForm from "./UserForm";
 import useUser from "../hooks/useUser";
 import DreamForm from "./DreamForm";
+import { collection, addDoc} from "firebase/firestore";
+import { db} from "./../firebase";
 
 function Home(){
     const [isLoggedIn, currentUser] = useUser();
     const [dreamForm, setDreamForm] = useState(false);
 
 
-    function toggleForm(){
-        setDreamForm(true)
+    const handleAddingNewDream = async (newDream) => {
+        await addDoc(collection(db, "dreams"), newDream);
+        setDreamForm(false);
     }
 
     let displayedContent = null;
     if(dreamForm) {
-        displayedContent = <DreamForm/>
+        displayedContent = <DreamForm uid={currentUser.uid} handleFunction={handleAddingNewDream}/>
     }
     else {
         displayedContent = <JournalList/>
@@ -26,7 +29,7 @@ function Home(){
             <React.Fragment>
             <div className="Content" id="userBox">
                 <h3 id="welcome">Welcome back, {currentUser.email}</h3>
-                <button id="dreamButton" onClick={toggleForm}> Log New Dream </button> 
+                <button id="dreamButton" onClick={() => setDreamForm(true)}> Log New Dream </button> 
             </div>
             {displayedContent}
             </React.Fragment>
