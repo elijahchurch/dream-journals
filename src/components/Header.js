@@ -14,12 +14,7 @@ function Header() {
     let logDreamDisplay = null;
     if(isLoggedIn) {
         logDreamDisplay = 
-                <React.Fragment>
-                    <button className="headerButtons headerLinks" onClick={SignOut}>Sign out</button>
-                    <button className="headerButtons"> 
-                        <Link className="headerLinks" to="/enterDream">Log Dream</Link>
-                    </button>                    
-                </React.Fragment>;
+                    <button className="headerButtons headerLinks" onClick={SignOut}>Sign out</button>                
     }
     else {
         logDreamDisplay = 

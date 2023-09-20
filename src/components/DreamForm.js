@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 function DreamForm(){
     return (
         <div className="Content">
@@ -28,6 +30,10 @@ function DreamForm(){
             </div>
         </div>
     )
+}
+
+DreamForm.propTypes = {
+    uid: PropTypes.string
 }
 
 export default DreamForm;

@@ -1,6 +1,8 @@
 function JournaList(){
     return (
-        <h3>Journal entries will go here</h3>
+        <div className="Content formTemplate">
+            <h3>Journal entries will go here</h3>
+        </div>
     )
 }
 
