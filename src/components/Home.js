@@ -1,17 +1,16 @@
 import React, { useState} from "react";
 import JournalList from "./JournalList";
 import UserForm from "./UserForm";
-import {Link} from "react-router-dom";
-import { db, auth } from "./../firebase"
+import useUser from "../hooks/useUser";
 
 function Home(){
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [isLoggedIn, currentUser] = useUser();
 
-    if(auth.currentUser !== null) {
+    if(isLoggedIn) {
         return (
             <div className="Content">
+                <h3>Welcome back, {currentUser.email}</h3>
                 <JournalList/>
-                
             </div>
         )
     }
