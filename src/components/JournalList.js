@@ -1,9 +1,22 @@
-function JournaList(){
+import Proptypes from "prop-types";
+import Dream from "./Dream";
+
+function JournaList(props){
     return (
         <div className="Content formTemplate">
-            <h3>Journal entries will go here</h3>
+            {props.list.map((entry) => 
+            <Dream
+                name ={entry.name}
+                date = {entry.date}
+                description = {entry.description}
+                id={entry.id}
+                key={entry.id}/>)}
         </div>
     )
+}
+
+JournaList.propTypes = {
+    list: Proptypes.array
 }
 
 export default JournaList;
